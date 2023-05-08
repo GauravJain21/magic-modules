@@ -260,6 +260,24 @@ properties:
         description: |
           Whether automated backups are enabled.
   - !ruby/object:Api::Type::NestedObject
+    name: 'sslConfig'
+    description: 'SSL configuration for this AlloyDB Cluster.'
+    properties:
+      - !ruby/object:Api::Type::Enum
+        name: 'sslMode'
+        description: 'Specifies client-server SSL/TLS connection behavior.'
+        values:
+        - :SSL_MODE_UNSPECIFIED
+        - :SSL_MODE_ALLOW
+        - :SSL_MODE_REQUIRE
+        - :SSL_MODE_VERIFY_CA
+      - !ruby/object:Api::Type::Enum
+        name: 'caSource'
+        description: 'Certificate Authority (CA) source. Only CA_SOURCE_MANAGED is supported currently, and is the default value.'
+        values:
+        - :CA_SOURCE_UNSPECIFIED
+        - :CA_SOURCE_MANAGED
+  - !ruby/object:Api::Type::NestedObject
     name: 'backupSource'
     output: true
     description: 'Cluster created from backup.'
